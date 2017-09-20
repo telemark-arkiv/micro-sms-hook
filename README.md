@@ -6,6 +6,16 @@
 
 micro-sms-hook listens to incoming HTTP POST-requests from twilio and triggers some action.
 
+## Create a token
+Create a secret token with ``openssl``, ``uuidgen`` or something else. Don't use any slashes since token is going to be used in the URL.
+
+```sh
+export TOKEN=$(uuidgen)
+echo $TOKEN
+```
+
+## Twilio
+
 Twilio POST's
 
 ```js
