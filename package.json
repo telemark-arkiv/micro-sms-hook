@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "description": "micro-sms-hook listens to incoming HTTP POST-requests from twilio and triggers some action",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "micro",
     "dev": "micro-dev -H localhost",
     "test": "standard && nsp check && ava",
     "coverage": "nyc ava",
-    "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls"
+    "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls",
+    "standard-fix": "standard --fix",
+    "now-deploy": "npm test && now --npm && now alias"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maccyber/micro-sms-webhook.git"
+    "url": "https://github.com/telemark/micro-sms-webhook.git"
   },
   "keywords": [
     "twilio",
@@ -23,11 +26,21 @@
     "email": "jonas.enge@gmail.com",
     "url": "https://github.com/maccyber"
   },
+  "contributors": [
+    {
+      "name": "Geir Gåsodden",
+      "email": "geir.gasodden@pythonia.no",
+      "url": "https://github.com/zrrrzzt"
+    }
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/maccyber/micro-sms-webhook/issues"
+  "engines": {
+    "node": ">=8.5.0"
   },
-  "homepage": "https://github.com/maccyber/micro-sms-webhook#readme",
+  "bugs": {
+    "url": "https://github.com/telemark/micro-sms-webhook/issues"
+  },
+  "homepage": "https://github.com/telemark/micro-sms-webhook#readme",
   "devDependencies": {
     "ava": "^0.22.0",
     "axios": "^0.16.2",
@@ -46,9 +59,9 @@
     "winston-papertrail": "^1.0.5"
   },
   "now": {
-    "alias": "smshook.service.t-fk.no",
-    "env": {
-      "NODE_ENV": "production"
-    }
+    "alias": [
+      "smshook.service.t-fk.no"
+    ],
+    "dotenv": "production.env"
   }
 }
