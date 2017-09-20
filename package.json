@@ -1,0 +1,53 @@
+{
+  "name": "micro-sms-webhook",
+  "version": "1.0.0",
+  "description": "micro-sms-hook listens to incoming HTTP POST-requests from twilio and triggers some action",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev -H localhost",
+    "test": "standard && nsp check && ava",
+    "coverage": "nyc ava",
+    "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maccyber/micro-sms-webhook.git"
+  },
+  "keywords": [
+    "twilio",
+    "webhook"
+  ],
+  "author": {
+    "name": "Jonas Enge",
+    "email": "jonas.enge@gmail.com",
+    "url": "https://github.com/maccyber"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maccyber/micro-sms-webhook/issues"
+  },
+  "homepage": "https://github.com/maccyber/micro-sms-webhook#readme",
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "coveralls": "^2.13.1",
+    "micro-dev": "^1.2.3",
+    "nsp": "^2.6.3",
+    "nyc": "^11.0.3",
+    "standard": "^10.0.2",
+    "test-listen": "^1.0.2"
+  },
+  "dependencies": {
+    "marked": "^0.3.6",
+    "micro": "^9.0.0",
+    "query-string": "^5.0.0",
+    "winston": "^2.3.1",
+    "winston-papertrail": "^1.0.5"
+  },
+  "now": {
+    "alias": "smshook.service.t-fk.no",
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+}
