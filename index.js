@@ -1,5 +1,5 @@
 const readFileSync = require('fs').readFileSync
-const marked = require('marked')
+const md = require('markdown-it')()
 const { text, send } = require('micro')
 const { parse } = require('url')
 const qs = require('query-string')
@@ -25,7 +25,6 @@ module.exports = async (req, res) => {
   } else {
     res.setHeader('Content-Type', 'text/html')
     const readme = readFileSync('./README.md', 'utf-8')
-    const html = marked(readme)
-    send(res, 200, html)
+    send(res, 200, md.render(readme))
   }
 }
