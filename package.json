@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/telemark/micro-sms-webhook#readme",
   "devDependencies": {
-    "ava": "0.24.0",
+    "ava": "0.25.0",
     "axios": "0.17.1",
     "coveralls": "3.0.0",
     "nsp": "3.1.0",
